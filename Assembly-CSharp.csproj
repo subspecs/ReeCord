@@ -53,6 +53,7 @@
     <UnityVersion>2019.4.31f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Backend.cs" />
     <Compile Include="Assets\Scripts\Scene Managers\BaseSceneManager.cs" />
     <Compile Include="Assets\Scripts\Templates\Window\WindowBackgroundManager.cs" />
   </ItemGroup>
