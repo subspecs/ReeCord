@@ -14,6 +14,18 @@ public class WindowBackgroundManager : MonoBehaviour
     public bool BottomLeftCorner = true;
     public bool BottomRightCorner = true;
 
+    private bool FirstColorLoad = true;
+
+    [HideInInspector]
+    public float RCoef;
+    [HideInInspector]
+    public float GCoef;
+    [HideInInspector]
+    public float BCoef;
+
+    [HideInInspector]
+    public float LumValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +47,7 @@ public class WindowBackgroundManager : MonoBehaviour
     public void UpdateWindowSettings()
     {
         SetWindowColor(WindowBGColor);
+        if (FirstColorLoad) { var C32 = (Color32)WindowBGColor; LumValue = (C32.r + C32.g + C32.b) / 765f; FirstColorLoad = false; }
         if (!TopLeftCorner) { BGDetails[BGDetails.Length - 4].sprite = null; }
         if (!TopRightCorner) { BGDetails[BGDetails.Length - 3].sprite = null; }
         if (!BottomLeftCorner) { BGDetails[BGDetails.Length - 2].sprite = null; }
